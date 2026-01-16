@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prismatic Silk Harmonies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @keyframes jump {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes slow-glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes background-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes fabric-beat {
+      0% { transform: scale(1.1) rotate(0deg); filter: brightness(1.2) saturate(1.2) contrast(1.1); }
+      30% { transform: scale(1.15) rotate(0.5deg); filter: brightness(1.6) saturate(1.5) contrast(1.3); }
+      100% { transform: scale(1.1) rotate(0deg); filter: brightness(1.2) saturate(1.2) contrast(1.1); }
+    }
+    .animate-jump {
+      animation: jump 0.4s ease-in-out;
+    }
+    .animate-slow-glow {
+      animation: slow-glow 4s infinite ease-in-out;
+    }
+    .animate-fabric-beat {
+      animation: fabric-beat 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    body {
+      background: linear-gradient(-45deg, #0f1718, #16121c, #1a1612, #14141a);
+      background-size: 400% 400%;
+      animation: background-shift 15s ease infinite;
+      min-height: 100vh;
+      color: white;
+      font-family: 'Inter', -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .silk-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(139, 92, 246, 0.03), transparent 70%);
+      pointer-events: none;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
